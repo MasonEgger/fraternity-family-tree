@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load mptt_tags %}
+{% block main %}
+<body>
+<!--
+We will create a family tree using just CSS(3)
+The markup will be simple nested lists
+-->
+<div class="tree">
+  <ul>
+     {% recursetree brothers %}
+    <li>
+	{% if node.membership_status == "Probationary" %}
+	    <a href="" style="color: red;">{{ node.first_name }} {{ node.last_name}}<br>{{node.pledge_class.name}}</a>
+	{% else %}
+	    <a href="">{{ node.first_name }} {{ node.last_name}}<br>{{node.pledge_class.name}}
+	    {% if node.chapter.name != "Gamma Phi" %}
+	    <br>Original Chapter: {{node.chapter.name}}
+	    {% endif %}
+	    </a>
+	{% endif %}
+         {% if not node.is_leaf_node %}
+	  <ul>
+	       {{ children }}
+	  </ul>
+         {% endif %}
+	  
+    </li>
+       {% endrecursetree %}
+ </ul>
+</div>
+
+	    
+	    
+</body>
+{% endblock main %}

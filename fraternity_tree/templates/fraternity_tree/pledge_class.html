@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load mptt_tags %}
+
+{% block main %}
+<ul>
+{% for brother in pledge_brothers %}
+<li> {{brother}} </li>
+{% endfor %}
+</ul>
+{% endblock main %}

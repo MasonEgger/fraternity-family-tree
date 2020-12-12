@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load mptt_tags %}
+
+{% block main %}
+<form action="/tree/pledge_class" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Show Class" />
+</form>
+{% endblock main %}
