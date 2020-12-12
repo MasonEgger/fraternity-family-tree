@@ -17,6 +17,6 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^tree/', include('fraternity_tree.urls')),
+    url('admin/', admin.site.urls),
+    url('', include('fraternity_tree.urls')),
 ]
